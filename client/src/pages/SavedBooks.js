@@ -1,8 +1,8 @@
-import React from "react";
+import { React, useEffect} from "react";
 import { Container, Card, Button, Row, Col } from "react-bootstrap";
 import { useQuery, useMutation } from "@apollo/client";
-import { REMOVE_BOOK } from "../utils/mutations";
-import { GET_USER } from "../utils/mutations";
+import { REMOVE_BOOK } from "../utils/mutation";
+import { GET_USER } from "../utils/queries";
 import Auth from "../utils/auth";
 import { removeBookId } from "../utils/localStorage";
 
