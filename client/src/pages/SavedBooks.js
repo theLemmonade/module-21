@@ -1,15 +1,16 @@
-import { React, useEffect} from "react";
+import React from "react";
 import { Container, Card, Button, Row, Col } from "react-bootstrap";
 import { useQuery, useMutation } from "@apollo/client";
 import { REMOVE_BOOK } from "../utils/mutation";
 import { GET_USER } from "../utils/queries";
-import Auth from "../utils/auth";
 import { removeBookId } from "../utils/localStorage";
+import Auth from "../utils/auth";
 
 const SavedBooks = () => {
 	const { loading, data } = useQuery(GET_USER);
 	const [removeBook, { error }] = useMutation(REMOVE_BOOK);
 	const userData = data?.me || [];
+	console.log(data);
 	const handleDeleteBook = async (bookId) => {
 		const token = Auth.loggedIn() ? Auth.getToken() : null;
 		if (!token) {
